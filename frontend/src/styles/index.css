@@ -1,0 +1,84 @@
+:root {
+  /* Color — a night-lab palette: deep slate blues standing in for the
+     recording room after lights-out, one warm moonlit accent, and the
+     hypnogram's own stage colors (see utils/stages.js) doing the rest of
+     the color work rather than added decoration. */
+  --color-bg: #0d1420;
+  --color-bg-raised: #141d2c;
+  --color-panel: #182236;
+  --color-panel-border: #263349;
+  --color-text: #e7ecf5;
+  --color-text-dim: #8c98ac;
+  --color-text-faint: #5c6780;
+  --color-accent: #7fb8d9;
+  --color-accent-dim: #4f7188;
+  --color-danger: #e0806b;
+
+  /* Type */
+  --font-display: "Newsreader", Georgia, serif;
+  --font-ui: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+
+  /* Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--color-accent-dim);
+  color: var(--color-text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

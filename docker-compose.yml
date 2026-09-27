@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount your checkpoint without rebuilding the image.
+      - ./backend/models:/app/models
+    environment:
+      MODEL_NAME: cnn
+      CHECKPOINT_PATH: models/best_model.pt
+      ALLOWED_ORIGINS: http://localhost:5173,http://localhost:8080
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: http://localhost:8000
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
